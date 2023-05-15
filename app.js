@@ -13,7 +13,8 @@ async function searchHandler(e) {
 }
 
 async function getGIF(term) {
-    let result = await axios.get(`http://api.giphy.com/v1/gifs/search?q=${term}&api_key=MhAodEJIJxQMxW9XqxKjyXfNYdLoOIym&limit=5`);
+    let termNoSpaces = term.replace(" ", "+");
+    let result = await axios.get(`http://api.giphy.com/v1/gifs/search?q=${termNoSpaces}&api_key=MhAodEJIJxQMxW9XqxKjyXfNYdLoOIym&limit=5`);
     return result;
 }
 
